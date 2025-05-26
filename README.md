@@ -10,7 +10,7 @@ Cycle Wars es un videojuego de supervivencia 2D inspirado en el clásico arcade 
 ## Tecnologías Utilizadas
 - **Lenguaje:** Java
 - **Framework:** LibGDX
-- **Plataformas objetivo:** Escritorio (Windows)
+- **Plataformas objetivo:** Escritorio (Windows, Linux, Mac)
 - **Redes:** Comunicación en red usando TCP/UDP para partidas en línea
 
 ## Cómo Compilar y Ejecutar
@@ -18,3 +18,18 @@ Cycle Wars es un videojuego de supervivencia 2D inspirado en el clásico arcade 
    ```bash
    git clone https://github.com/usuario/cycle-wars.git
    cd cycle-wars
+   ```
+
+2. Abrir el proyecto con un entorno compatible con Gradle (como IntelliJ IDEA o Eclipse).
+
+3. Ejecutar el juego desde el módulo `desktop`:
+   ```bash
+   ./gradlew desktop:run
+   ```
+
+4. Para conectarse en red, iniciar una instancia como host y la otra como cliente con la IP correspondiente.
+
+> Asegurarse de tener Java 8 o superior instalado y configurado correctamente.
+
+## Estado Actual del Proyecto
+Para esta primera entrega: **Configuración inicial y estructura del proyecto**.
