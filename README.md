@@ -31,5 +31,9 @@ Cycle Wars es un videojuego de supervivencia 2D inspirado en el clásico arcade 
 
 > Asegurarse de tener Java 8 o superior instalado y configurado correctamente.
 
+## Enlace a la Wiki del Proyecto (Propuesta Detallada);
+[Ver la Propuesta Completa del Proyecto aquí](https://github.com/TU_USUARIO/TU_REPOSITORIO/wiki/Propuesta-delProyecto----Nombre-del-Juego)
+
+
 ## Estado Actual del Proyecto
 Para esta primera entrega: **Configuración inicial y estructura del proyecto**.
