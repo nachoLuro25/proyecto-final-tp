@@ -17,7 +17,7 @@ Cycle Wars es un videojuego de supervivencia 2D inspirado en el clásico arcade 
 ## Cómo Compilar y Ejecutar
 1. Clonar el repositorio:
    ```bash
-   [git clone https://github.com/usuario/cycle-wars.git](https://github.com/nachoLuro25/proyecto-final-tp)
+   https://github.com/nachoLuro25/proyecto-final-tp.git
    cd cycle-wars
    ```
 
