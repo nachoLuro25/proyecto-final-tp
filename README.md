@@ -8,6 +8,7 @@
 Cycle Wars es un videojuego de supervivencia 2D inspirado en el clásico arcade Tron. Cada jugador controla una moto de luz que deja un rastro brillante mientras se desplaza por un entorno cerrado. El objetivo es sobrevivir más tiempo que el oponente, evitando colisionar con los muros, los rastros de luz o el borde del mapa. El juego enfatiza la velocidad de reacción, estrategia y precisión. Incluye modo multijugador en red para partidas online 1v1, donde cada jugador puede activar una habilidad especial única.
 
 ## Tecnologías Utilizadas
+- **IDE:** IntelliJ IDEA
 - **Lenguaje:** Java
 - **Framework:** LibGDX
 - **Plataformas objetivo:** Escritorio (Windows, Linux, Mac)
