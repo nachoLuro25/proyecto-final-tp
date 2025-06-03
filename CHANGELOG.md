@@ -1,3 +1,5 @@
+# Changelog
+
 ## [Unreleased]
 
 ## [1.0.0] - 26-05-2025
