@@ -9,12 +9,6 @@ import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-/**
- * Menú que se muestra cuando el juego está en pausa
- *
- * @author Tu Nombre
- * @version 1.0
- */
 public class MenuPausa extends JFrame {
 
     private TronGame juego;
@@ -36,7 +30,6 @@ public class MenuPausa extends JFrame {
         panelPrincipal.setBackground(Color.BLACK);
         panelPrincipal.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
 
-        // Título
         JLabel titulo = new JLabel("PAUSA");
         titulo.setFont(new Font("Consolas", Font.BOLD, 48));
         titulo.setForeground(new Color(0, 255, 255));
@@ -44,7 +37,6 @@ public class MenuPausa extends JFrame {
         panelPrincipal.add(titulo);
         panelPrincipal.add(Box.createRigidArea(new Dimension(0, 40)));
 
-        // Panel de volumen
         AudioManager audioManager = AudioManager.getInstance();
         JPanel panelVolumen = UIComponents.crearPanelVolumen(
             audioManager.getMusicaJuego(),
@@ -55,7 +47,6 @@ public class MenuPausa extends JFrame {
         panelPrincipal.add(panelVolumen);
         panelPrincipal.add(Box.createRigidArea(new Dimension(0, 30)));
 
-        // Botones
         JPanel panelBotones = new JPanel();
         panelBotones.setLayout(new BoxLayout(panelBotones, BoxLayout.Y_AXIS));
         panelBotones.setBackground(Color.BLACK);
@@ -82,7 +73,6 @@ public class MenuPausa extends JFrame {
         setVisible(true);
         requestFocus();
 
-        // Listener para cerrar con ESC o X
         addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {

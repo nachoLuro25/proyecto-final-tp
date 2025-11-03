@@ -3,12 +3,6 @@ package ui;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * Ventana de ayuda e instrucciones del juego
- *
- * @author Tu Nombre
- * @version 1.0
- */
 public class VentanaAyuda extends JFrame {
 
     public VentanaAyuda() {
@@ -18,13 +12,11 @@ public class VentanaAyuda extends JFrame {
         setLayout(new BorderLayout());
         getContentPane().setBackground(Color.BLACK);
 
-        // Panel principal con scroll
         JPanel panelPrincipal = new JPanel();
         panelPrincipal.setLayout(new BoxLayout(panelPrincipal, BoxLayout.Y_AXIS));
         panelPrincipal.setBackground(Color.BLACK);
         panelPrincipal.setBorder(BorderFactory.createEmptyBorder(20, 30, 20, 30));
 
-        // Título
         JLabel titulo = new JLabel("GUÍA DE BATALLA");
         titulo.setFont(new Font("Consolas", Font.BOLD, 36));
         titulo.setForeground(Color.CYAN);
@@ -32,7 +24,6 @@ public class VentanaAyuda extends JFrame {
         panelPrincipal.add(titulo);
         panelPrincipal.add(Box.createRigidArea(new Dimension(0, 30)));
 
-        // Objetivo
         panelPrincipal.add(crearSeccion(
             "OBJETIVO DEL JUEGO",
             "Sobrevive más tiempo que tu oponente. Tu moto deja un rastro de energía mortal.\n" +
@@ -43,7 +34,6 @@ public class VentanaAyuda extends JFrame {
 
         panelPrincipal.add(Box.createRigidArea(new Dimension(0, 25)));
 
-        // Controles
         JLabel tituloControles = new JLabel("CONTROLES");
         tituloControles.setFont(new Font("Consolas", Font.BOLD, 24));
         tituloControles.setForeground(Color.CYAN);
@@ -65,7 +55,6 @@ public class VentanaAyuda extends JFrame {
 
         panelPrincipal.add(Box.createRigidArea(new Dimension(0, 25)));
 
-        // Habilidades
         JLabel tituloHabilidades = new JLabel("HABILIDADES ESPECIALES");
         tituloHabilidades.setFont(new Font("Consolas", Font.BOLD, 24));
         tituloHabilidades.setForeground(Color.CYAN);
@@ -98,13 +87,11 @@ public class VentanaAyuda extends JFrame {
             "Causa confusión total. ¡El rival no sabrá qué le pasó!",
             new Color(50, 255, 50)));
 
-        // Scroll
         JScrollPane scrollPane = new JScrollPane(panelPrincipal);
         scrollPane.setBorder(null);
         scrollPane.getVerticalScrollBar().setUnitIncrement(16);
         scrollPane.setBackground(Color.BLACK);
 
-        // Botón cerrar
         JButton btnCerrar = new JButton("CERRAR");
         btnCerrar.setFont(new Font("Consolas", Font.BOLD, 18));
         btnCerrar.setBackground(new Color(50, 50, 50));

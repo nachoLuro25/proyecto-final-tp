@@ -5,19 +5,12 @@ import utils.ColorType;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * Ventana de selección de colores para ambos jugadores
- *
- * @author Tu Nombre
- * @version 1.0
- */
 public class VentanaSeleccion extends JFrame {
 
     private VentanaPrincipal ventanaPadre;
     private ColorType colorJugador1 = ColorType.ROJO;
     private ColorType colorJugador2 = ColorType.AZUL;
 
-    // Variables para tracking de selección
     private JButton botonSeleccionadoJ1;
     private JButton botonSeleccionadoJ2;
 
@@ -34,15 +27,12 @@ public class VentanaSeleccion extends JFrame {
         panelPrincipal.setBorder(BorderFactory.createEmptyBorder(30, 30, 20, 30));
         panelPrincipal.setBackground(Color.BLACK);
 
-        // Panel Jugador 1
         JPanel panelJ1 = crearPanelJugador("JUGADOR 1", ColorType.ROJO, true);
         panelPrincipal.add(panelJ1);
 
-        // Panel Jugador 2
         JPanel panelJ2 = crearPanelJugador("JUGADOR 2", ColorType.AZUL, false);
         panelPrincipal.add(panelJ2);
 
-        // Panel inferior con botones
         JPanel panelInferior = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
         panelInferior.setBackground(Color.BLACK);
 
@@ -78,9 +68,6 @@ public class VentanaSeleccion extends JFrame {
         setVisible(true);
     }
 
-    /**
-     * Crea un panel de selección para un jugador
-     */
     private JPanel crearPanelJugador(String titulo, ColorType colorInicial, boolean esJugador1) {
         JPanel panel = new JPanel(new BorderLayout(10, 10));
         panel.setBackground(Color.BLACK);
@@ -100,7 +87,6 @@ public class VentanaSeleccion extends JFrame {
         seleccion.setForeground(colorInicial.getColor());
         seleccion.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
 
-        // Crear botones de colores
         JButton btnRojo = crearBotonColor(ColorType.ROJO, seleccion, esJugador1);
         JButton btnAzul = crearBotonColor(ColorType.AZUL, seleccion, esJugador1);
         JButton btnAmarillo = crearBotonColor(ColorType.AMARILLO, seleccion, esJugador1);
@@ -115,7 +101,6 @@ public class VentanaSeleccion extends JFrame {
         panel.add(opciones, BorderLayout.CENTER);
         panel.add(seleccion, BorderLayout.SOUTH);
 
-        // Marcar selección inicial
         if (esJugador1) {
             botonSeleccionadoJ1 = (colorInicial == ColorType.ROJO) ? btnRojo :
                 (colorInicial == ColorType.AZUL) ? btnAzul :
@@ -131,9 +116,6 @@ public class VentanaSeleccion extends JFrame {
         return panel;
     }
 
-    /**
-     * Crea un botón de selección de color
-     */
     private JButton crearBotonColor(ColorType colorType, JLabel labelSeleccion, boolean esJugador1) {
         JButton btn;
         try {
@@ -151,10 +133,8 @@ public class VentanaSeleccion extends JFrame {
         btn.setFocusPainted(false);
         btn.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2));
 
-        // Crear referencia final para usar en lambdas
         final JButton finalBtn = btn;
 
-        // Efecto hover
         btn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 JButton botonActual = esJugador1 ? botonSeleccionadoJ1 : botonSeleccionadoJ2;
@@ -170,15 +150,12 @@ public class VentanaSeleccion extends JFrame {
             }
         });
 
-        // Acción al hacer clic
         btn.addActionListener(e -> {
-            // Quitar borde del botón anterior
             JButton botonAnterior = esJugador1 ? botonSeleccionadoJ1 : botonSeleccionadoJ2;
             if (botonAnterior != null) {
                 botonAnterior.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2));
             }
 
-            // Actualizar color
             if (esJugador1) {
                 colorJugador1 = colorType;
                 botonSeleccionadoJ1 = finalBtn;
@@ -187,11 +164,9 @@ public class VentanaSeleccion extends JFrame {
                 botonSeleccionadoJ2 = finalBtn;
             }
 
-            // Actualizar label
             labelSeleccion.setText("Color: " + colorType.name());
             labelSeleccion.setForeground(colorType.getColor());
 
-            // Marcar nuevo botón
             finalBtn.setBorder(BorderFactory.createLineBorder(Color.WHITE, 4));
         });
 

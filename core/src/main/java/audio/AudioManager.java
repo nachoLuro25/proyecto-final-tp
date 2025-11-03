@@ -6,13 +6,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Gestor de audio del juego CYCLE WARS
- * Maneja música de fondo y efectos de sonido
- *
- * @author Tu Nombre
- * @version 1.0
- */
 public class AudioManager {
 
     private static AudioManager instance;
@@ -41,9 +34,6 @@ public class AudioManager {
         return instance;
     }
 
-    /**
-     * Inicializa y reproduce la música del menú principal
-     */
     public void inicializarMusicaMenu() {
         try {
             musicaMenu = cargarClip(RUTA_MUSICA_MENU);
@@ -56,9 +46,6 @@ public class AudioManager {
         }
     }
 
-    /**
-     * Inicializa y reproduce la música del juego
-     */
     public void inicializarMusicaJuego() {
         try {
             // Cargar efectos de sonido
@@ -79,9 +66,6 @@ public class AudioManager {
         }
     }
 
-    /**
-     * Carga un efecto de sonido al mapa
-     */
     private void cargarEfecto(String nombre, String rutaArchivo) {
         try {
             Clip clip = cargarClip(rutaArchivo);
@@ -93,9 +77,6 @@ public class AudioManager {
         }
     }
 
-    /**
-     * Carga un archivo de audio y retorna el Clip
-     */
     private Clip cargarClip(String rutaArchivo) {
         try {
             File archivoAudio = new File(rutaArchivo);
@@ -115,10 +96,6 @@ public class AudioManager {
         }
     }
 
-    /**
-     * Reproduce un efecto de sonido
-     * @param nombre Nombre del efecto (confusion, explosion, velocidad, etc.)
-     */
     public void reproducirEfecto(String nombre) {
         Clip clip = clips.get(nombre);
         if (clip != null) {
@@ -133,9 +110,6 @@ public class AudioManager {
         }
     }
 
-    /**
-     * Detiene la música del menú
-     */
     public void detenerMusicaMenu() {
         if (musicaMenu != null && musicaMenu.isRunning()) {
             musicaMenu.stop();
@@ -143,9 +117,6 @@ public class AudioManager {
         }
     }
 
-    /**
-     * Detiene la música del juego
-     */
     public void detenerMusicaJuego() {
         if (musicaJuego != null && musicaJuego.isRunning()) {
             musicaJuego.stop();
@@ -153,11 +124,6 @@ public class AudioManager {
         }
     }
 
-    /**
-     * Ajusta el volumen de un clip específico
-     * @param clip Clip a ajustar
-     * @param valorDB Valor en decibelios
-     */
     public void ajustarVolumen(Clip clip, float valorDB) {
         if (clip != null && clip.isControlSupported(FloatControl.Type.MASTER_GAIN)) {
             try {
@@ -174,25 +140,14 @@ public class AudioManager {
         }
     }
 
-    /**
-     * Obtiene el clip de música del menú
-     * @return Clip de música del menú
-     */
     public Clip getMusicaMenu() {
         return musicaMenu;
     }
 
-    /**
-     * Obtiene el clip de música del juego
-     * @return Clip de música del juego
-     */
     public Clip getMusicaJuego() {
         return musicaJuego;
     }
 
-    /**
-     * Libera todos los recursos de audio
-     */
     public void liberarRecursos() {
         detenerMusicaMenu();
         detenerMusicaJuego();

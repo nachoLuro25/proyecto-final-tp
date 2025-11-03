@@ -10,12 +10,6 @@ import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-/**
- * Menú que se muestra al finalizar el juego
- *
- * @author Tu Nombre
- * @version 1.0
- */
 public class MenuFinJuego extends JFrame {
 
     public MenuFinJuego(String ganador, Color colorGanador, Runnable onReiniciar,
@@ -103,7 +97,6 @@ public class MenuFinJuego extends JFrame {
         setVisible(true);
         requestFocus();
 
-        // Listener para tecla R
         addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {

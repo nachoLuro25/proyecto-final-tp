@@ -6,35 +6,19 @@ import game.GameConfig;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * Clase con componentes UI reutilizables
- * Evita duplicación de código en las ventanas
- *
- * @author Tu Nombre
- * @version 1.0
- */
 public class UIComponents {
 
-    /**
-     * Crea un botón con imagen y efecto hover
-     * @param rutaImagen Ruta de la imagen
-     * @param ancho Ancho del botón
-     * @param alto Alto del botón
-     * @return JButton configurado
-     */
     public static JButton crearBotonMenu(String rutaImagen, int ancho, int alto) {
         JButton btn = new JButton();
 
         try {
             ImageIcon icon = null;
 
-            // Intentar cargar desde resources
             java.net.URL url = UIComponents.class.getClassLoader().getResource(rutaImagen.startsWith("/") ? rutaImagen.substring(1) : rutaImagen);
 
             if (url != null) {
                 icon = new ImageIcon(url);
             } else {
-                // Fallback: cargar desde ruta directa
                 String path = rutaImagen.startsWith("/") ? rutaImagen.substring(1) : rutaImagen;
                 icon = new ImageIcon(path);
             }
@@ -42,14 +26,12 @@ public class UIComponents {
             Image img = icon.getImage().getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
             ImageIcon iconNormal = new ImageIcon(img);
 
-            // Versión más grande para el hover
             Image imgHover = icon.getImage().getScaledInstance(
                 (int)(ancho * 1.05), (int)(alto * 1.05), Image.SCALE_SMOOTH);
             ImageIcon iconHover = new ImageIcon(imgHover);
 
             btn.setIcon(iconNormal);
 
-            // Copias finales para usar en el listener
             final ImageIcon finalIconNormal = iconNormal;
             final ImageIcon finalIconHover = iconHover;
 
@@ -80,11 +62,6 @@ public class UIComponents {
         return btn;
     }
 
-    /**
-     * Crea un slider de volumen personalizado con estilo cyan
-     * @param valorInicial Valor inicial en dB
-     * @return JSlider configurado
-     */
     public static JSlider crearSliderVolumen(int valorInicial) {
         JSlider slider = new JSlider(GameConfig.VOLUME_MIN, GameConfig.VOLUME_MAX, valorInicial);
         slider.setOpaque(false);
@@ -95,7 +72,6 @@ public class UIComponents {
         slider.setBorder(null);
         slider.setFocusable(false);
 
-        // Personalización visual
         slider.setUI(new javax.swing.plaf.basic.BasicSliderUI(slider) {
             @Override
             public void paintTrack(Graphics g) {
@@ -103,12 +79,10 @@ public class UIComponents {
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                     RenderingHints.VALUE_ANTIALIAS_ON);
 
-                // Fondo azul oscuro
                 g2d.setColor(new Color(30, 90, 180));
                 g2d.fillRoundRect(trackRect.x, trackRect.y + trackRect.height / 3,
                     trackRect.width, 6, 6, 6);
 
-                // Barra de progreso azul brillante
                 g2d.setColor(new Color(0, 120, 255));
                 int filledWidth = (int) ((slider.getValue() - slider.getMinimum())
                     / (double) (slider.getMaximum() - slider.getMinimum()) * trackRect.width);
@@ -122,14 +96,12 @@ public class UIComponents {
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                     RenderingHints.VALUE_ANTIALIAS_ON);
 
-                // Círculo cyan brillante
                 g2d.setColor(new Color(0, 255, 255));
                 g2d.fillOval(thumbRect.x, thumbRect.y, thumbRect.width, thumbRect.height);
             }
 
             @Override
             public void paintFocus(Graphics g) {
-                // Pintar de negro para eliminar el rectángulo de foco
                 Graphics2D g2d = (Graphics2D) g;
                 g2d.setColor(Color.BLACK);
                 g2d.fillRect(0, 0, slider.getWidth(), slider.getHeight());
@@ -139,12 +111,6 @@ public class UIComponents {
         return slider;
     }
 
-    /**
-     * Crea un panel de volumen completo (label + slider + porcentaje)
-     * @param clip Clip de audio a controlar
-     * @param valorInicial Valor inicial en dB
-     * @return JPanel con los componentes
-     */
     public static JPanel crearPanelVolumen(javax.sound.sampled.Clip clip, int valorInicial) {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(Color.BLACK);
@@ -178,13 +144,6 @@ public class UIComponents {
         return panel;
     }
 
-    /**
-     * Crea un botón estándar con estilo del juego
-     * @param texto Texto del botón
-     * @param ancho Ancho
-     * @param alto Alto
-     * @return JButton configurado
-     */
     public static JButton crearBotonEstandar(String texto, int ancho, int alto) {
         JButton btn = new JButton(texto);
         btn.setFont(new Font("Consolas", Font.BOLD, 16));
