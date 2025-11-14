@@ -40,4 +40,4 @@ Cycle Wars es un videojuego de supervivencia 2D inspirado en el clásico arcade 
 Para esta primera entrega: **Configuración inicial y estructura del proyecto**.
 
 ## Trailer Cycle Wars
-Link al trailer del juego Cycle Wars: https://youtu.be/xjSsPI_vfeI
+Click [Aquí] para ver el trailer del juego Cycle Wars (https://youtu.be/xjSsPI_vfeI)
